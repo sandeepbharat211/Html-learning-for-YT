@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>YourEvent Registration</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #e6e6e6;
+}
+
+/* Main box */
+.container {
+    width: 600px;
+    margin: 30px auto;
+    background: #f4f4f4;
+    padding: 25px;
+    border-radius: 6px;
+}
+
+/* Title */
+.title {
+    text-align: center;
+    color: #2ca36c;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Header */
+.header-box {
+    background: #c7d8d3;
+    text-align: center;
+    padding: 12px;
+    margin: 20px 0;
+    font-size: 16px;
+}
+
+/* Labels */
+label {
+    font-size: 13px;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* Inputs */
+input, select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #bfbfbf;
+    border-radius: 6px;
+    background: #f9f9f9;
+    box-sizing: border-box;
+}
+
+/* Row (First & Last Name) */
+.row {
+    display: flex;
+    gap: 15px;
+}
+
+.field-box {
+    flex: 1;
+}
+
+/* DOB */
+.dob {
+    display: flex;
+    gap: 10px;
+}
+
+.dob select {
+    flex: 1;
+}
+
+/* spacing */
+.field {
+    margin-bottom: 15px;
+}
+.submit-btn {
+    
+    width:30%;
+    padding: 12px;
+    background: #2ca36c;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto; 
+    
+}
+
+.submit-btn:hover {
+    background: #248a5a;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+    <form action="">
+
+    <div class="title">🏅 YourEvent</div>
+
+    <div class="header-box">Online Registration</div>
+
+    <!-- Name -->
+    <div class="row field">
+        <div class="field-box">
+            <label>First Name</label>
+            <input type="text" placeholder="First Name" autofocus required>
+        </div>
+
+        <div class="field-box">
+            <label>Last Name</label>
+            <input type="text" placeholder="Last Name" required>
+        </div>
+    </div>
+
+    <!-- Email -->
+    <div class="field">
+        <label>Email Address</label>
+        <input type="email" placeholder="Email Address" readonly>
+    </div>
+
+    <!-- Company -->
+    <div class="field">
+        <label>Company (if applicable)</label>
+        <input type="text" placeholder="Company">
+    </div>
+
+    <!-- Address -->
+    <div class="field">
+        <label>Physical Address</label>
+        <input type="text" placeholder="Physical Address">
+    </div>
+
+    <!-- DOB -->
+    <div class="field">
+        <label>Date of Birth</label>
+        <div class="dob">
+            <select id="month"></select>
+            <select id="day"></select>
+            <select id="year"></select>
+        </div>
+    </div>
+    <div class="field">
+    <button class="submit-btn">Submit</button>
+    </div>
+    </form>
+
+</div>
+
+<script>
+// Months
+const months = [
+    "Month","January","February","March","April","May","June",
+    "July","August","September","October","November","December"
+];
+
+let month = document.getElementById("month");
+months.forEach(m => {
+    let opt = document.createElement("option");
+    opt.text = m;
+    month.add(opt);
+});
+
+// Days
+let day = document.getElementById("day");
+let dDefault = document.createElement("option");
+dDefault.text = "Day";
+day.add(dDefault);
+
+for (let i = 1; i <= 31; i++) {
+    let opt = document.createElement("option");
+    opt.text = i;
+    day.add(opt);
+}
+
+// Years
+let year = document.getElementById("year");
+let yDefault = document.createElement("option");
+yDefault.text = "Year";
+year.add(yDefault);
+
+for (let y = 2025; y >= 1950; y--) {
+    let opt = document.createElement("option");
+    opt.text = y;
+    year.add(opt);
+}
+</script>
+
+</body>
+</html>
